@@ -1,7 +1,7 @@
-prefix = '/'
+DEBUG = False
+prefix = '-'
 owner = 170314338807054336
-description = '''An Epicly Epic Bot
-                Say epic words to gain points, say unepic words to lose them.
-              '''
+# event_organizer = 107226922609565696 if not DEBUG else owner
+description = '''Semi-Useful bot'''
 
-cogs = ["Cogs.EpicPoints", "Cogs.Owner", "Cogs.RainbowSix"]
+cogs = ["Cogs.Owner", "Cogs.Guest", "Cogs.Smmry", "Cogs.RainbowSix", "Cogs.Logging"]

@@ -1,0 +1,48 @@
+---
+version: 1
+disable_existing_loggers: False
+formatters:
+  info:
+    format: "%(levelname)s::%(name)s | %(asctime)s | %(message)s"
+    datefmt: '%d/%m/%Y %H:%M:%S'
+  debug:
+    format: "%(levelname)s::%(name)s | %(asctime)s | %(message)s"
+    datefmt: '%d/%m/%Y %H:%M:%S'
+  error:
+    format: "%(asctime)s - %(name)s.%(funcName)s(): %(message)s"
+    datefmt: '%d/%m/%Y %H:%M:%S'
+
+handlers:
+  console:
+    class: logging.StreamHandler
+    level: DEBUG
+    formatter: debug
+    stream: ext://sys.stdout
+
+  info_file_handler:
+    class: logging.handlers.TimedRotatingFileHandler
+    level: INFO
+    formatter: info
+    filename: Logs/Info/info.log
+    when: 'midnight'
+    backupCount: 20
+    encoding: utf8
+
+  error_file_handler:
+    class: logging.handlers.TimedRotatingFileHandler
+    level: ERROR
+    formatter: error
+    filename: Logs/Errors/errors.log
+    when: 'midnight'
+    backupCount: 20
+    encoding: utf8
+
+loggers:
+  Bot:
+    level: INFO
+    handlers: [console]
+    propagate: yes
+
+root:
+  level: INFO
+  handlers: [info_file_handler, error_file_handler]

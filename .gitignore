@@ -19,8 +19,13 @@ __pycache__/
 # Environments
 .env
 .venv
+/venv
 
 # User Specific
-/secrets.py
-/data.json
 /run.bat
+/Databases
+/Abandoned
+/Libs
+/Logs
+/Sounds
+/Utils/Crawler.py
